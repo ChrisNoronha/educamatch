@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducaMatch - Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Styles for left section (EducaMatch branding) */
+        .left-section {
+            background-color: #ff9900;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .left-section h1 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        .left-section p {
+            font-size: 1.5em;
+        }
+        /* Styles for right section (login form) */
+        .right-section {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .login-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .login-card button {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .login-card button:hover {
+            background-color: #5a54e6;
+        }
+        .forgot-password {
+            display: block;
+            margin-top: 10px;
+            text-align: right;
+        }
+        .google-login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Section (EducaMatch branding) -->
+        <div class="col-md-6 left-section">
+            <h1>Educa<span style="color: white;">Match</span></h1>
+            <p>Bem-Vindo(a) à sua plataforma de estudo...</p>
+            <img src="profile.png" alt="User Image" class="img-fluid rounded-circle" width="100">  <!-- Placeholder image -->
+        </div>
+
+        <!-- Right Section (Login form) -->
+        <div class="col-md-6 right-section">
+            <div class="login-card">
+                <h2>Login</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="identifier">Nome</label>
+                        <input type="text" id="identifier" name="identifier" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    <button type="submit" class="btn btn-primary btn-block">Continue</button>
+
+                    <hr>
+                    <div class="google-login">
+                        <button type="button" class="btn btn-outline-secondary">
+                            <img src="google-logo.png" alt="Google Logo" style="width: 20px;"> Login with Google
+                        </button>
+                    </div>
+                </form>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                    <li class="alert alert-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
